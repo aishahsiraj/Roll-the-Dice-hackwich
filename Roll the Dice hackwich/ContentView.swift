@@ -1,21 +1,28 @@
 //
 //  ContentView.swift
-//  Roll the Dice hackwich
+//  Roll the Dice hackwhich
 //
-//  Created by Aishah Siraj on 10/26/23.
+//  Created by Aishah Siraj on 10/25/23.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    @State private var randomValue = 0
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("Dice, Roll")
+                .font(.title)
+            Image("pips \(randomValue)")
+                .resizable()
+                .frame(width: 200, height:
+                    200, alignment: .center)
+                .padding()
+                .onTapGesture {
+                    randomValue = Int.random(in: 1...6)
+                }
+            Spacer()
         }
-        .padding()
     }
 }
 
